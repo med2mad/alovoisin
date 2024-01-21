@@ -1,29 +1,15 @@
 import { useState, useEffect } from "react";
-import Cf from "./components/Cf";
-import C2 from "./components/C2";
-import useH from "./useH";
 import {BrowserRouter , Route, Switch, Link} from "react-router-dom";
-import { Unity, useUnityContext } from "react-unity-webgl";
 
 
 function App() {
 
-  const { unityProvider } = useUnityContext({
-    loaderUrl: "webgl build.loader.js",
-    dataUrl: "webgl.data",
-    frameworkUrl: "build.framework.js",
-    codeUrl: "build.wasm",
-  });
-
-  
   const customH = useH();
 
   let [id, setId] = useState(1);
   useEffect(()=>{console.log("side Effect"); return ()=>{console.log("-abbort!");} ;} , [])
 
   return ( <div className="App App-header">
-
-<Unity unityProvider={unityProvider} />
 
     <input type="text" value={id} onChange={(e)=>setId(e.target.value)} />
 
