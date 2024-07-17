@@ -58,7 +58,7 @@
                             <header class="text-center">
                                 <h1 class="tm-site-title">Nettoyage</h1>
                             </header>
-                            <p>Offrez-vous une maison impeccable avec nos femmes de ménage expérimentées.
+                            <p>Offrez-vous une maison/bureau impeccable avec nos femmes de ménage expérimentées.
                                 Service fiable et personnalisé pour répondre à vos besoins de nettoyage.</p>
                             <p class="text-center mt-4 mb-0">
                                 <a data-scroll href="#tm-section-5" class="btn tm-btn-secondary">Contactez-nous...</a>
@@ -108,7 +108,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-6 tm-flex-center-v tm-text-container tm-section-left">
-                        <h2 class="tm-color-secondary mb-4">Autres Services</h2>
+                        <h2 class="tm-color-secondary mb-4">Autres Services pour individus et organisations</h2>
                         <p class="mb-4">
                             Bénéficiez de services personnalisés selon vos besoins spécifiques.
                             Nous offrons une assistance fiable et flexible pour toute tâche que vous souhaitez accomplir.
@@ -127,15 +127,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 tm-flex-center-v tm-section-left">
-                        <form action="https://formsubmit.co/mohamed.leghdaich@gmail.com" class="tm-contact-form" method="POST">
+                        <form class="tm-contact-form">
                             <div class="form-group mb-4">
-                                <input type="text" id="contact_name" name="name" class="form-control" placeholder="Name" required/>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Name" required/>
                             </div>
-                            <div class="form-group mb-5">
-                                <textarea rows="5" id="contact_message" name="message" class="form-control" placeholder="Message..." required></textarea>
+                            <div class="form-group mb-3">
+                                <textarea rows="5" id="message" name="message" class="form-control" placeholder="Message..." required></textarea>
                             </div>
                             <div class="form-group mb-0 text-right">
-                                <button type="submit" class="btn tm-btn-primary tm-send-btn">Send</button>
+                                <button class="btn tm-btn-primary tm-send-btn" onclick="f(event)">Send</button>
+                            </div>
+                            <div class="form-group mt-2 text-right">
+                                <p class="alert alert-info" style="display:none;" id="ok">Votre Message est Envoyé !</p>
                             </div>
                         </form>
                     </div>
@@ -168,6 +171,24 @@
             easing: 'easeInOutQuart',
             speed: 800
         });
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+        emailjs.init("y-gZR-nsbbF389zIa");
+        })();
+    </script>
+    <script>
+        function f(event) {
+            event.preventDefault();
+            var params = {"name":document.getElementById("name").value, "message":document.getElementById("message").value}
+
+            emailjs.send("service_e92hacx", "template_sz9im5p", params)
+            .then((res)=>{
+                document.getElementById("ok").style.display = 'block';
+            })
+        }
     </script>
 </body>
 </html>
