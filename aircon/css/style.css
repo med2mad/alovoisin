@@ -1,4 +1,15 @@
 /********** Template CSS **********/
+@font-face {
+    font-family: 'Gulzar-Regular';
+    src: url('Gulzar-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#logo{
+    font-family: 'Gulzar-Regular', sans-serif;
+}
+
 :root {
     --primary: #FF800F;
     --secondary: #001064;
